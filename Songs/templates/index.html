@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion-Based Song Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #185091;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Adjust spacing between buttons */
+            justify-content: center; /* Center buttons within the container */
+            max-width: 100%; /* Ensure the buttons container is responsive */
+            padding: 10px; /* Add some padding for a better layout */
+        }
+
+
+        .button {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: #fff;
+            background: linear-gradient(135deg, #185091, #357ab8);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, #357ab8, #185091);
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+
+        a {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #185091;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #357ab8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Songs</h1>
+    <div class="buttons">
+        {% for emotion in emotions %}
+            {% if emotion not in ["unknown", ""] %}
+                <a href="/recommend?emotion={{ emotion }}" class="button">{{emotion}}</a>
+                <!-- {% if emotion == "1" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Affectation</a>
+                {% elif emotion == "3" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Zest</a>
+                {% elif emotion == "4" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Lust</a>
+                {% elif emotion == "5" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Suffering</a>
+                {% elif emotion == "6" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Rage</a>
+                {% elif emotion == "7" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Sad</a>
+                {% elif emotion == "8" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Longing</a>
+                {% elif emotion == "10" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Disappointment</a>
+                {% elif emotion == "11" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Love</a>
+                {% elif emotion == "12" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Enthrallment</a>
+                {% elif emotion == "15" %}
+                    <a href="/recommend?emotion={{ emotion }}" class="button">Contentment</a>
+                {% endif %} -->
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <!-- <a href="/lyrics-analysis">或分析歌詞</a> -->
+</body>
+</html>

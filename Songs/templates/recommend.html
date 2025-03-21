@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #f7f9fc);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #185091;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            background: #ffffff;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .song-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #185091;
+        }
+
+        .song-score {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #185091;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #357ab8;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        根據 "{{ emotion }}"推薦的歌曲
+    </h1>
+    
+    <a href="/">返回首頁</a>
+    {% if songs %}
+        <ul>
+            {% for song in songs %}
+                <li>
+                    <a href="/song/{{ song.id }}">{{ song.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>沒有符合的歌曲。</p>
+    {% endif %}
+</body>
+</html>
